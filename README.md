@@ -1,17 +1,22 @@
 # PEPFAR StoryMaps
 
-![Illustrated globe, timeline, and data visualizations introducing the PEPFAR StoryMaps project](assets/pepfar-storymaps-splash.svg)
+![PEPFAR StoryMaps banner with a red HIV awareness ribbon, an illustrative key populations map, and a Stories of Hope card; the map does not show real data](assets/pepfar-storymaps-splash-v2.svg)
+
+**[Open the interactive PEPFAR Map Tour →](https://jltobias.github.io/JupyterLite-PEPFAR-Storymaps/)**
+
+*Visual themes: the [UNAIDS Key Populations Atlas](https://kpatlas.unaids.org/dashboard) and PEPFAR's [Stories of Hope](https://www.state.gov/stories-of-hope-pepfar). The illustration is schematic; explore the linked sources for actual data and stories.*
 
 **Explore the history of PEPFAR and the global HIV response through place, time, evidence, and lived experience.**
 
 This open project is being developed as an interactive, accessible collection of maps, narratives, oral histories, archival material, videos, and data visualizations. The aim is to help a global audience—including communities, researchers, educators, and public-health and agency staff—understand the epidemic's history and the role of PEPFAR in the wider response.
 
-> **Project status:** Project-specific Jupyter Book, JupyterLite, and StoryMap deployments are not published yet. The links below open live upstream tools and trusted evidence sources; they are examples and research destinations, not completed PEPFAR StoryMaps. Check back here for project launch links.
+> **Project status:** The Map Tour above is the first project-specific experience. Jupyter Book and JupyterLite deployments are still in development. Other links below open upstream tools and evidence sources; they are examples and research destinations, not completed PEPFAR StoryMaps.
 
 ## Explore
 
 | Experience | Open |
 | --- | --- |
+| **PEPFAR Map Tour** | [Explore the live, source-linked map tour](https://jltobias.github.io/JupyterLite-PEPFAR-Storymaps/) — follow dated stops across places that shaped PEPFAR and the HIV response. |
 | **Jupyter Book** | [Jupyter Book documentation](https://jupyterbook.org/) — the framework intended for the project's narrative and reproducible research book. |
 | **JupyterLite Lab** | [Try JupyterLite Lab](https://jupyterlite.readthedocs.io/en/stable/try/lab) — run notebooks in the browser; this is the upstream demo. |
 | **StoryMap Tour Explorer** | [Try JupyterGIS in JupyterLite](https://jupytergis.readthedocs.io/en/latest/lite/lab/index.html) · [JupyterGIS interface and first-layers tour](https://jupytergis.readthedocs.io/en/latest/getting_started/index.html) · [ArcGIS StoryMaps](https://storymaps.arcgis.com/) |
@@ -21,8 +26,9 @@ This open project is being developed as an interactive, accessible collection of
 | **3D scenes** | [CesiumJS Sandcastle](https://sandcastle.cesium.com/) — an interactive 3D geospatial example gallery; not a PEPFAR scene. |
 | **Videos** | [*Fauci* (National Geographic Documentary Films)](https://films.nationalgeographic.com/fauci) |
 | **Publication archives** | [UNAIDS publications](https://www.unaids.org/en/resources/publications/latest) · [HIV.gov: HIV and AIDS timeline](https://www.hiv.gov/hiv-basics/overview/history/hiv-and-aids-timeline) · [PEPFAR](https://www.pepfar.gov/) |
-| **Oral histories and context** | [An Oral History of PEPFAR](https://www.bushcenter.org/publications/an-oral-history-of-pepfar-how-a-dream-big-partnership-is-saving-the-lives-of-millions) · [Imagining a World Without PEPFAR: Paving the Way for Impact](https://www.bushcenter.org/publications/imagining-a-world-without-pepfar-paving-the-way-for-impact) |
-| **UNAIDS and key population resources** | [UNAIDS global HIV statistics](https://www.unaids.org/en/resources/fact-sheet) · [UNAIDS Key Populations Atlas](https://aidsinfo.unaids.org/kpatlas) · [UNAIDS: Key populations](https://www.unaids.org/en/topic/key-populations) |
+| **Oral histories and context** | [PEPFAR Stories of Hope](https://www.state.gov/stories-of-hope-pepfar) · [State Department archive of Stories of Hope](https://2001-2009.state.gov/s/gac/rl/or/68653.htm) · [An Oral History of PEPFAR](https://www.bushcenter.org/publications/an-oral-history-of-pepfar-how-a-dream-big-partnership-is-saving-the-lives-of-millions) · [Imagining a World Without PEPFAR: Paving the Way for Impact](https://www.bushcenter.org/publications/imagining-a-world-without-pepfar-paving-the-way-for-impact) |
+| **Books** | [*Lifeline: The Story of PEPFAR, the Greatest Humanitarian Initiative of Our Time*](https://www.goodreads.com/book/show/245290845-lifeline) by John Donnelly (2026). |
+| **UNAIDS and key population resources** | [UNAIDS global HIV statistics](https://www.unaids.org/en/resources/fact-sheet) · [UNAIDS Key Populations Atlas](https://kpatlas.unaids.org/dashboard) · [UNAIDS: Key populations](https://www.unaids.org/en/topic/key-populations) |
 
 JupyterGIS in JupyterLite runs without a server; some GIS capabilities may not be available in that mode. See the [JupyterGIS JupyterLite limitations](https://jupytergis.readthedocs.io/en/latest/user_guide/explanation/jupyter-lite-limitations.html).
 
@@ -37,17 +43,18 @@ JupyterGIS in JupyterLite runs without a server; some GIS capabilities may not b
 
 ## Sources and attributions
 
-The splash illustration above is original artwork created for this repository and does not use external images or data. External resources linked here remain the property of their respective publishers. Linking to a resource does not imply endorsement by PEPFAR, UNAIDS, Jupyter, or any other organization.
+The splash illustration above is original artwork created for this repository. Its red ribbon, map, and community and story panels are visually informed by the [UNAIDS Key Populations Atlas](https://kpatlas.unaids.org/dashboard) and [PEPFAR Stories of Hope](https://www.state.gov/stories-of-hope-pepfar), but no external images, maps, or data are reproduced. The map is schematic and its dots have no quantitative meaning. External resources linked here remain the property of their respective publishers. Linking to a resource does not imply endorsement by PEPFAR, UNAIDS, Jupyter, or any other organization.
 
 Core references for the historical and data context:
 
 1. **HIV.gov.** [A Timeline of HIV and AIDS](https://www.hiv.gov/hiv-basics/overview/history/hiv-and-aids-timeline). U.S.-focused timeline; use alongside international and community sources rather than as a complete global chronology.
-2. **UNAIDS.** [Global HIV & AIDS statistics — Fact sheet](https://www.unaids.org/en/resources/fact-sheet); [AIDSinfo data portal](https://aidsinfo.unaids.org/); [HIV estimates with uncertainty bounds, 1990–present](https://www.unaids.org/en/resources/documents/2026/HIV_estimates_with_uncertainty_bounds_1990-present); [Key Populations Atlas](https://aidsinfo.unaids.org/kpatlas); and [Key populations topic page](https://www.unaids.org/en/topic/key-populations). Consult the original release for the applicable year, uncertainty intervals, definitions, and reuse terms before reproducing data.
-3. **U.S. President's Emergency Plan for AIDS Relief (PEPFAR).** [Official website](https://www.pepfar.gov/) and [PEPFAR data portal](https://data.pepfar.gov/). Cite the exact dashboard, indicator, country, reporting period, and access date when using portal data.
+2. **UNAIDS.** [Global HIV & AIDS statistics — Fact sheet](https://www.unaids.org/en/resources/fact-sheet); [AIDSinfo data portal](https://aidsinfo.unaids.org/); [HIV estimates with uncertainty bounds, 1990–present](https://www.unaids.org/en/resources/documents/2026/HIV_estimates_with_uncertainty_bounds_1990-present); [Key Populations Atlas](https://kpatlas.unaids.org/dashboard); and [Key populations topic page](https://www.unaids.org/en/topic/key-populations). Consult the original release for the applicable year, uncertainty intervals, definitions, and reuse terms before reproducing data.
+3. **U.S. President's Emergency Plan for AIDS Relief (PEPFAR).** [Official website](https://www.pepfar.gov/), [PEPFAR data portal](https://data.pepfar.gov/), and [Stories of Hope](https://www.state.gov/stories-of-hope-pepfar) ([archived collection](https://2001-2009.state.gov/s/gac/rl/or/68653.htm)). Cite the exact dashboard, indicator, country, reporting period, and access date when using portal data; credit individual stories and their media to their publishers and creators.
 4. **George W. Bush Presidential Center / George W. Bush Institute.** [An Oral History of PEPFAR: How a “Dream Big” Partnership Is Saving the Lives of Millions](https://www.bushcenter.org/publications/an-oral-history-of-pepfar-how-a-dream-big-partnership-is-saving-the-lives-of-millions) (originally published 2018; updated); [Imagining a World Without PEPFAR: Paving the Way for Impact](https://www.bushcenter.org/publications/imagining-a-world-without-pepfar-paving-the-way-for-impact). Attribute quotations and images to the original page and its credited contributors.
 5. **National Geographic Documentary Films.** [*Fauci* (2021)](https://films.nationalgeographic.com/fauci). Link to the publisher's page; do not copy, redistribute, or embed film materials without permission.
 6. **World Health Organization.** [HIV data and statistics](https://www.who.int/teams/global-hiv-hepatitis-and-stis-programmes/hiv/strategic-information/hiv-data-and-statistics). Use the source's definitions and reporting dates when citing WHO estimates.
 7. **Project Jupyter / GeoJupyter.** [JupyterLite](https://jupyterlite.readthedocs.io/en/stable/), [JupyterGIS](https://jupytergis.readthedocs.io/en/latest/), and [Jupyter Book](https://jupyterbook.org/). These links document the tools, not the underlying HIV/PEPFAR data.
+8. **John Donnelly.** [*Lifeline: The Story of PEPFAR, the Greatest Humanitarian Initiative of Our Time*](https://www.goodreads.com/book/show/245290845-lifeline) (Harper, 2026). A book-length history and interpretation of PEPFAR; attribute any quotations or images to the book and its creators.
 
 ### Attribution and responsible reuse
 
