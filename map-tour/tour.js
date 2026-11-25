@@ -103,6 +103,59 @@ const stops = [
   }
 ];
 
+// The linked photo pages document authorship and reuse terms. Photos illustrate
+// the stop's place or response; captions identify images taken in other years.
+const stopMedia = {
+  "los-angeles-1981": {
+    photo: {file: "Tom Bradley.jpg", author: "Mr Flikker", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", caption: "AIDS Walk Los Angeles in 1988, showing the community response that followed the first 1981 report.", alt: "Mayor Tom Bradley speaking at AIDS Walk Los Angeles in 1988"},
+    video: {title: "AIDS Epidemic: 40 Years of Progress", url: "https://www.youtube.com/watch?v=OcWijAiGL2A", credit: "Trillium Health, 2021 · retrospective on the first Los Angeles report"}
+  },
+  "vancouver-1996": {
+    photo: {file: "TeachAIDS Around the World 6 (5385410807).jpg", author: "TeachAIDS", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/", caption: "HIV education in Vancouver, 2009; an illustration of the city's continuing response, not the 1996 conference.", alt: "TeachAIDS HIV education image associated with Vancouver"},
+    video: {title: "1996: Our IAS Conference", url: "https://www.youtube.com/watch?v=_0PYpQQBCiA", credit: "Ribbon Community (formerly AIDS Vancouver), 2014 · recollections of the XI International AIDS Conference"}
+  },
+  "washington-2003": {
+    photo: {file: "Red Ribbon on the HUD headquarters.jpg", author: "dbking", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", caption: "An AIDS awareness ribbon in Washington, D.C., 2006; it does not depict the 2003 announcement.", alt: "A large red AIDS awareness ribbon on the HUD headquarters in Washington, D.C."},
+    video: {title: "January 28, 2003: State of the Union Address", url: "https://millercenter.org/the-presidency/presidential-speeches/january-28-2003-state-union-address", credit: "University of Virginia Miller Center · video and transcript of President Bush's announcement"}
+  },
+  "uganda-2004": {
+    photo: {file: "Taso Entebbe - Sign for Aids Support Organization - Entebbe - Uganda.jpg", author: "Adam Jones, Ph.D.", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", caption: "The AIDS Support Organization sign in Entebbe, Uganda, 2012; an illustration of local HIV care, not the first 2004 treatment site.", alt: "Sign for The AIDS Support Organization in Entebbe, Uganda"},
+    video: {title: "PEPFAR at 15: A Story of Hope from Uganda", url: "https://www.youtube.com/watch?v=xaCk3-FG9Rw", credit: "U.S. Centers for Disease Control and Prevention, 2018 · retrospective on Uganda's early treatment response"}
+  },
+  "durban-2004": {
+    photo: {file: "Umvoti Aids Centre - Where joy lives.jpg", author: "C22kile", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", caption: "Community support at Umvoti AIDS Centre in Greytown, KwaZulu-Natal, 2019; a regional illustration, not St. Mary's Hospital.", alt: "Community activity at Umvoti AIDS Centre in KwaZulu-Natal"},
+    video: {title: "South Africa: St. Mary's Hospital", url: "https://www.biointeractive.org/classroom-resources/south-africa-st-marys-hospital", credit: "HHMI BioInteractive, 2007 · film about the hospital's HIV care"}
+  },
+  "kampala-2008": {
+    photo: {file: "Kampala (464043292).jpg", author: "Dave Proffer", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", caption: "HIV awareness sign in Kampala, 2007; it does not depict the 2008 implementers meeting.", alt: "HIV awareness sign photographed in Kampala, Uganda"},
+    video: {title: "How HIV Unfolded in Uganda", url: "https://www.youtube.com/watch?v=LztS8KOTySo", credit: "UC San Francisco, 2012 · Makerere University physician Moses Kamya reflects on Uganda's response"}
+  },
+  "lesotho-2016": {
+    photo: {file: "Lesotho Training Wiki.jpg", author: "Cjmadson", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", caption: "Community health worker training in Lesotho (source: Partners In Health); an illustration of the workforce behind nationwide care, not the 2016 policy launch.", alt: "Community health workers receiving training in Lesotho"},
+    video: {title: "Men's clinics bring health services closer to men in Lesotho", url: "https://www.youtube.com/watch?v=Tv2a2oovu6o", credit: "Elizabeth Glaser Pediatric AIDS Foundation, 2018 · PEPFAR-supported treatment access"}
+  },
+  "durban-2017": {
+    photo: {file: "PEPFAR Community Grants Awards 2024 (54083186310).jpg", author: "USEmbassySA", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", caption: "PEPFAR community grants event in KwaZulu-Natal, 2024; a later example of local partnerships, not a DREAMS Girls Club.", alt: "PEPFAR community grants awards event in KwaZulu-Natal"},
+    video: {title: "Siyayinqoba video archive", url: "https://www.youtube.com/@Siyayinqoba/videos", credit: "Community Media Trust · includes Season 9 stories produced with young women"}
+  },
+  "washington-2023": {
+    photo: {file: "25th WORLD AIDS DAY CANDLELIGHT VIGIL at the PILLAR OF FIR.jpg", author: "Elvert Barnes", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/", caption: "A Washington, D.C., World AIDS Day vigil in 2013; an illustration of the communities behind the response, not a PEPFAR anniversary event.", alt: "People gathered for a World AIDS Day candlelight vigil in Washington, D.C."},
+    video: {title: "PEPFAR at 20: The History and Impact", url: "https://www.youtube.com/watch?v=JZKEzTZ28PA", credit: "George W. Bush Presidential Center, 2023 · premiered at a Washington, D.C., anniversary event"}
+  },
+  "botswana-2025": {
+    photo: {file: "Infers Group Arting Health 2018 Science Communication Sexual Health HIV funded by the welcome trust 6045x4797.jpg", author: "James-Alex Matthews, on behalf of Infers Group", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", caption: "HIV and treatment awareness mural in Gaborone, 2019; a local illustration, not the 2025 Gold Tier ceremony.", alt: "Street art in Gaborone depicting HIV and antiretroviral treatment awareness"},
+    video: {title: "Elimination of Mother-to-Child Transmission of HIV: Experience from Botswana", url: "https://www.youtube.com/watch?v=zbuKWftPWhA", credit: "LabCoP ECHO, 2024 · Botswana's progress before Gold Tier certification"}
+  }
+};
+
+function commonsFileUrl(file) {
+  return "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/" + encodeURIComponent(file) + "&width=960";
+}
+
+function commonsPageUrl(file) {
+  return "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file.replaceAll(" ", "_"));
+}
+
 const $ = (id) => document.getElementById(id);
 const timeline = $("timeline");
 const timelineButtons = [];
@@ -134,6 +187,17 @@ function selectStop(index, updateHash = true) {
   $("stop-title").textContent = stop.title;
   $("stop-place").textContent = stop.place;
   $("stop-text").textContent = stop.text;
+  const media = stopMedia[stop.id];
+  $("stop-image").src = commonsFileUrl(media.photo.file);
+  $("stop-image").alt = media.photo.alt;
+  $("stop-photo-caption").textContent = media.photo.caption;
+  $("stop-photo-author").textContent = media.photo.author;
+  $("stop-photo-source").href = commonsPageUrl(media.photo.file);
+  $("stop-photo-license").textContent = media.photo.license;
+  $("stop-photo-license").href = media.photo.licenseUrl;
+  $("stop-video").textContent = media.video.title + " ↗";
+  $("stop-video").href = media.video.url;
+  $("stop-video-credit").textContent = " — " + media.video.credit;
   $("stop-location-note").textContent = stop.locationNote;
   $("stop-source").textContent = "Read " + stop.sourceName + " ↗";
   $("stop-source").href = stop.sourceUrl;

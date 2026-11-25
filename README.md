@@ -47,6 +47,8 @@ The splash illustration above is original artwork created for this repository. I
 
 Core references for the historical and data context:
 
+See the [research references](REFERENCES.md) for the supplied CRANE Survey publications and studies of PEPFAR outcomes, policy, and funding disruptions. These papers are background for future stories; the current tour's stop-specific citations are in [Map Tour sources](map-tour/SOURCES.md).
+
 1. **HIV.gov.** [A Timeline of HIV and AIDS](https://www.hiv.gov/hiv-basics/overview/history/hiv-and-aids-timeline). U.S.-focused timeline; use alongside international and community sources rather than as a complete global chronology.
 2. **UNAIDS.** [Global HIV & AIDS statistics — Fact sheet](https://www.unaids.org/en/resources/fact-sheet); [AIDSinfo data portal](https://aidsinfo.unaids.org/); [HIV estimates with uncertainty bounds, 1990–present](https://www.unaids.org/en/resources/documents/2026/HIV_estimates_with_uncertainty_bounds_1990-present); [Key Populations Atlas](https://kpatlas.unaids.org/dashboard); and [Key populations topic page](https://www.unaids.org/en/topic/key-populations). Consult the original release for the applicable year, uncertainty intervals, definitions, and reuse terms before reproducing data.
 3. **U.S. President's Emergency Plan for AIDS Relief (PEPFAR).** [Official website](https://www.pepfar.gov/), [PEPFAR data portal](https://data.pepfar.gov/), and [Stories of Hope](https://www.state.gov/stories-of-hope-pepfar) ([archived collection](https://2001-2009.state.gov/s/gac/rl/or/68653.htm)). Cite the exact dashboard, indicator, country, reporting period, and access date when using portal data; credit individual stories and their media to their publishers and creators.

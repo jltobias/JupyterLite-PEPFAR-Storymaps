@@ -28,7 +28,7 @@
       <div class="intro-copy">
         <p class="eyebrow">An interactive history · 1981–2025</p>
         <h1 id="page-title">A global response, one place at a time.</h1>
-        <p>Travel through moments that shaped HIV treatment and PEPFAR. Each stop connects a date and a place with a short account and a source you can read for yourself.</p>
+        <p>Travel through moments that shaped HIV treatment and PEPFAR. Each stop connects a date and place with a short account, a credited photograph, a video link, and a source you can read for yourself.</p>
         <a class="start-link" href="#tour">Begin the tour <span aria-hidden="true">↓</span></a>
       </div>
       <div class="intro-art" aria-hidden="true">
@@ -55,6 +55,14 @@
           <h3 id="stop-title"></h3>
           <p id="stop-place" class="story-place"></p>
           <p id="stop-text" class="story-text"></p>
+          <figure class="story-photo">
+            <img id="stop-image" alt="" loading="lazy" decoding="async">
+            <figcaption>
+              <span id="stop-photo-caption"></span>
+              <span class="media-credit">Photo: <span id="stop-photo-author"></span> · <a id="stop-photo-source" target="_blank" rel="noopener noreferrer">Wikimedia Commons source</a> · <a id="stop-photo-license" target="_blank" rel="noopener noreferrer"></a> · displayed without alteration.</span>
+            </figcaption>
+          </figure>
+          <p class="video-reference"><span class="media-label">Watch</span> <a id="stop-video" target="_blank" rel="noopener noreferrer"></a><span id="stop-video-credit"></span></p>
           <p id="stop-location-note" class="location-note"></p>
           <a id="stop-source" class="source-link" href="#" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span></a>
           <div class="tour-controls">
@@ -82,7 +90,7 @@
       </div>
     </section>
   </main>
-  <footer>Original tour built for the PEPFAR StoryMaps project. Sources are linked at each stop. Map tiles © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. This project is not affiliated with or endorsed by PEPFAR or UNAIDS.</footer>
+  <footer>Original tour built for the PEPFAR StoryMaps project. Sources and Creative Commons photo credits are linked at each stop; see the <a href="SOURCES.md">full media credits</a> and <a href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps/blob/main/REFERENCES.md">research references</a>. Map tiles © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. This project is not affiliated with or endorsed by PEPFAR or UNAIDS.</footer>
   <noscript><p class="noscript">JavaScript is needed to navigate the map tour. The <a href="https://www.hiv.gov/hiv-basics/overview/history/hiv-and-aids-timeline/">HIV.gov timeline</a> and <a href="https://www.cdc.gov/global-hiv-tb/">CDC Global HIV and TB</a> remain available.</p></noscript>
 </body>
 </html>
