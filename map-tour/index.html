@@ -9,9 +9,9 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308396f'/%3E%3Cpath d='M32 12C17-7 5 15 19 33l20 22 8-7-20-22c-8-9 3-17 10-7z' fill='%23e42e4c'/%3E%3Cpath d='M32 12C47-7 59 15 45 33L25 55l-8-7 20-22c8-9-3-17-10-7z' fill='%23c91f40'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=060f315">
+  <link rel="stylesheet" href="styles.css?v=photo-full-1">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script defer src="tour.js?v=060f315"></script>
+  <script defer src="tour.js?v=photo-full-1"></script>
 </head>
 <body>
   <a class="skip-link" href="#story">Skip to the story</a>
@@ -60,7 +60,6 @@
           <p id="stop-date" class="story-date"></p>
           <h3 id="stop-title"></h3>
           <p id="stop-place" class="story-place"></p>
-          <p id="stop-text" class="story-text"></p>
           <figure class="story-photo">
             <img id="stop-image" alt="" loading="lazy" decoding="async">
             <figcaption>
@@ -68,6 +67,7 @@
               <span class="media-credit">Photo: <span id="stop-photo-author"></span> · <a id="stop-photo-source" target="_blank" rel="noopener noreferrer">Wikimedia Commons source</a> · <a id="stop-photo-license" target="_blank" rel="noopener noreferrer"></a> · displayed without alteration.</span>
             </figcaption>
           </figure>
+          <p id="stop-text" class="story-text"></p>
           <p class="video-reference"><span class="media-label">Watch</span> <a id="stop-video" target="_blank" rel="noopener noreferrer"></a><span id="stop-video-credit"></span></p>
           <p id="stop-location-note" class="location-note"></p>
           <a id="stop-source" class="source-link" href="#" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span></a>

@@ -201,6 +201,7 @@ function selectStop(index, updateHash = true) {
   $("stop-location-note").textContent = stop.locationNote;
   $("stop-source").textContent = "Read " + stop.sourceName + " ↗";
   $("stop-source").href = stop.sourceUrl;
+  $("story").scrollTop = 0;
   $("previous").disabled = index === 0;
   $("next").disabled = index === stops.length - 1;
   $("progress").style.setProperty("--progress", ((index + 1) / stops.length * 100) + "%");
