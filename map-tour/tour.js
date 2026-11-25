@@ -268,7 +268,7 @@ try {
 }
 
 const tour = $("tour");
-const fullscreenToggle = $("fullscreen-toggle");
+const fullscreenToggles = document.querySelectorAll(".fullscreen-toggle");
 let previousBodyOverflow = "";
 function useFullscreenFallback() {
   previousBodyOverflow = document.body.style.overflow;
@@ -283,11 +283,13 @@ function leaveFullscreenFallback() {
 }
 function syncFullscreen() {
   const active = document.fullscreenElement === tour || tour.classList.contains("fullscreen-fallback");
-  fullscreenToggle.textContent = active ? "Exit full screen" : "View full screen";
-  fullscreenToggle.setAttribute("aria-pressed", String(active));
+  fullscreenToggles.forEach((toggle) => {
+    toggle.textContent = active ? "Exit full screen" : "View full screen";
+    toggle.setAttribute("aria-pressed", String(active));
+  });
   if (map) window.requestAnimationFrame(() => map.invalidateSize({pan: false}));
 }
-fullscreenToggle.addEventListener("click", async () => {
+async function toggleFullscreen() {
   if (tour.classList.contains("fullscreen-fallback")) {
     leaveFullscreenFallback();
   } else if (document.fullscreenElement === tour) {
@@ -300,7 +302,8 @@ fullscreenToggle.addEventListener("click", async () => {
       useFullscreenFallback();
     }
   } else useFullscreenFallback();
-});
+}
+fullscreenToggles.forEach((toggle) => toggle.addEventListener("click", toggleFullscreen));
 document.addEventListener("fullscreenchange", syncFullscreen);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && tour.classList.contains("fullscreen-fallback")) leaveFullscreenFallback();

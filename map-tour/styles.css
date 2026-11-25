@@ -36,8 +36,8 @@ h1{font-size:clamp(42px,4.8vw,72px);line-height:1.08;letter-spacing:-.055em;max-
 .tour-heading h2,.more h2{font-size:clamp(31px,3vw,44px);letter-spacing:-.04em;margin-bottom:0;color:#08396f}
 .tour-actions{display:flex;align-items:center;justify-content:flex-end;gap:16px}
 .tour-actions p{color:#587188;font-size:16px;margin:0}
-.fullscreen-toggle{flex:none;border:1px solid #b5cddd;border-radius:8px;background:#fff;color:#08396f;padding:11px 15px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
-.fullscreen-toggle:hover{background:#edf3f8;border-color:#8bafc8}
+.fullscreen-toggle{flex:none;border:1px solid #0b5590;border-radius:8px;background:#0b5590;color:#fff;padding:11px 15px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.fullscreen-toggle:hover{background:#08396f;border-color:#08396f}
 .fullscreen-toggle[hidden]{display:none}
 .timeline{display:flex;gap:9px;overflow-x:auto;padding:3px 3px 17px;scrollbar-color:#aec4d6 transparent}
 .timeline button{flex:none;border:1px solid #cadbe8;border-radius:999px;background:#fff;color:#315b7b;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap}
@@ -46,7 +46,9 @@ h1{font-size:clamp(42px,4.8vw,72px);line-height:1.08;letter-spacing:-.055em;max-
 .tour-grid{display:grid;grid-template-columns:minmax(340px,.75fr) minmax(460px,1.25fr);gap:16px}
 .story-panel,.map-shell{border:1px solid #dbe6ef;background:#fff;border-radius:16px;box-shadow:0 9px 28px #0b3f6710;overflow:hidden}
 .story-panel{display:flex;flex-direction:column;padding:clamp(28px,3vw,45px)}
-.story-topline{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:42px}
+.story-topline{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:42px}
+.story-status{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.story-topline .fullscreen-toggle{margin-left:auto}
 .stop-count{font-weight:800;font-size:14px;letter-spacing:.13em;color:#6c8295}
 .stop-type{border-radius:999px;padding:7px 11px;background:#edf3f8;color:#365d7c;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
 .stop-type.is-pepfar{background:#fff0f3;color:#a51b39}
@@ -101,6 +103,6 @@ h1{font-size:clamp(42px,4.8vw,72px);line-height:1.08;letter-spacing:-.055em;max-
 footer{background:#082d55;color:#d3e4f1;padding:26px clamp(20px,4vw,66px);font-size:14px;line-height:1.6}
 footer a{color:#fff}
 .noscript{padding:16px 26px}
-@media(max-width:1000px){.intro-art{right:-300px;opacity:.34}.tour-grid{grid-template-columns:1fr}.map-shell{height:460px}.story-panel{min-height:440px}.more-grid{grid-template-columns:1fr 1fr}.tour:is(:fullscreen,.fullscreen-fallback) .tour-grid{flex:none;grid-template-rows:none}.tour:is(:fullscreen,.fullscreen-fallback) .story-panel{overflow:visible}.tour:is(:fullscreen,.fullscreen-fallback) .map-shell{height:min(55vh,460px);min-height:320px}}
+@media(max-width:1000px){.intro-art{right:-300px;opacity:.34}.tour-heading{display:block}.tour-actions{margin-top:14px;justify-content:space-between;flex-wrap:wrap}.tour-grid{grid-template-columns:1fr}.map-shell{height:460px}.story-panel{min-height:440px}.more-grid{grid-template-columns:1fr 1fr}.tour:is(:fullscreen,.fullscreen-fallback) .tour-grid{flex:none;grid-template-rows:none}.tour:is(:fullscreen,.fullscreen-fallback) .story-panel{overflow:visible}.tour:is(:fullscreen,.fullscreen-fallback) .map-shell{height:min(55vh,460px);min-height:320px}}
 @media(max-width:620px){.site-header{height:66px}.brand{font-size:17px}.repo-link{font-size:12px}.intro{padding:55px 23px;min-height:425px}.intro-art{right:-420px}.tour{padding:43px 15px 35px}.tour-heading{display:block}.tour-actions{margin-top:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}.tour-actions p{font-size:14px}.tour-grid{gap:12px}.story-panel{padding:27px;min-height:490px}.story-topline{margin-bottom:32px}.story-text{font-size:16px}.map-shell{height:410px}.map-legend{font-size:11px;padding:8px}.more{padding:47px 15px 55px}.more-grid{grid-template-columns:1fr}.tour:is(:fullscreen,.fullscreen-fallback){padding:14px}.tour:is(:fullscreen,.fullscreen-fallback) .map-shell{height:45vh;min-height:280px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
