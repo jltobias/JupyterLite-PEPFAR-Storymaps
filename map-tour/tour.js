@@ -167,7 +167,7 @@ let map;
 function markerIcon(index, active) {
   const stop = stops[index];
   const classes = ["tour-marker", stop.category === "context" ? "context" : "", active ? "active" : ""].filter(Boolean).join(" ");
-  const size = active ? 42 : 32;
+  const size = active ? 30 : 24;
   return L.divIcon({
     className: "",
     html: '<span class="' + classes + '" aria-hidden="true">' + (index + 1) + "</span>",
@@ -180,12 +180,17 @@ function selectStop(index, updateHash = true) {
   if (index < 0 || index >= stops.length) return;
   activeIndex = index;
   const stop = stops[index];
-  $("stop-count").textContent = "STOP " + String(index + 1).padStart(2, "0") + " / " + String(stops.length).padStart(2, "0");
+  $("stop-count").textContent = String(index + 1).padStart(2, "0") + " / " + String(stops.length).padStart(2, "0");
   $("stop-type").textContent = stop.category === "context" ? "HIV response context" : "PEPFAR history";
   $("stop-type").classList.toggle("is-pepfar", stop.category === "pepfar");
   $("stop-date").textContent = stop.date;
+  $("timeline-current").textContent = stop.year;
+  $("timeline-date").textContent = stop.date;
+  $("year-slider").value = stop.year;
   $("stop-title").textContent = stop.title;
   $("stop-place").textContent = stop.place;
+  $("map-caption-title").textContent = stop.short;
+  $("map-caption-subtitle").textContent = stop.place + " · approximate locator";
   $("stop-text").textContent = stop.text;
   const media = stopMedia[stop.id];
   $("stop-image").src = commonsFileUrl(media.photo.file);
@@ -201,10 +206,11 @@ function selectStop(index, updateHash = true) {
   $("stop-location-note").textContent = stop.locationNote;
   $("stop-source").textContent = "Read " + stop.sourceName + " ↗";
   $("stop-source").href = stop.sourceUrl;
-  $("story").scrollTop = 0;
+  document.querySelector(".story-scroll").scrollTop = 0;
   $("previous").disabled = index === 0;
   $("next").disabled = index === stops.length - 1;
   $("progress").style.setProperty("--progress", ((index + 1) / stops.length * 100) + "%");
+  $("progress-text").textContent = "Stop " + (index + 1) + " of " + stops.length;
   timelineButtons.forEach((button, buttonIndex) => {
     if (buttonIndex === index) {
       button.setAttribute("aria-current", "step");
@@ -215,6 +221,7 @@ function selectStop(index, updateHash = true) {
   });
   if (map) {
     markers.forEach((marker, markerIndex) => marker.setIcon(markerIcon(markerIndex, markerIndex === index)));
+    map.invalidateSize({pan: false});
     if (reducedMotion) map.setView(stop.coordinates, stop.zoom);
     else map.flyTo(stop.coordinates, stop.zoom, {duration: 1.1});
   }
@@ -233,6 +240,16 @@ stops.forEach((stop, index) => {
 
 $("previous").addEventListener("click", () => selectStop(activeIndex - 1));
 $("next").addEventListener("click", () => selectStop(activeIndex + 1));
+$("year-slider").addEventListener("input", (event) => {
+  const year = Number(event.target.value);
+  let nearest = 0;
+  let distance = Infinity;
+  stops.forEach((stop, index) => {
+    const nextDistance = Math.abs(stop.year - year);
+    if (nextDistance < distance) { nearest = index; distance = nextDistance; }
+  });
+  selectStop(nearest);
+});
 timeline.addEventListener("keydown", (event) => {
   if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
   event.preventDefault();
@@ -248,7 +265,8 @@ window.addEventListener("hashchange", () => {
 
 try {
   if (!window.L) throw new Error("Leaflet unavailable");
-  map = L.map("map", {scrollWheelZoom: false, zoomControl: true, worldCopyJump: true}).setView([12, 10], 2);
+  map = L.map("map", {scrollWheelZoom: false, zoomControl: false, worldCopyJump: true}).setView([12, 10], 2);
+  L.control.zoom({position: "bottomright"}).addTo(map);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 11,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
@@ -285,7 +303,7 @@ function leaveFullscreenFallback() {
 function syncFullscreen() {
   const active = document.fullscreenElement === tour || tour.classList.contains("fullscreen-fallback");
   fullscreenToggles.forEach((toggle) => {
-    toggle.textContent = active ? "Exit full screen" : "View full screen";
+    toggle.textContent = active ? "Exit full screen" : "Full screen";
     toggle.setAttribute("aria-pressed", String(active));
   });
   if (map) window.requestAnimationFrame(() => map.invalidateSize({pan: false}));
@@ -313,3 +331,4 @@ document.addEventListener("keydown", (event) => {
 const requestedId = decodeURIComponent(location.hash.replace(/^#stop=/, ""));
 const requestedIndex = stops.findIndex((stop) => stop.id === requestedId);
 selectStop(requestedIndex >= 0 ? requestedIndex : 0, false);
+window.addEventListener("resize", () => { if (map) map.invalidateSize({pan: false}); });
