@@ -3,100 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#08396f">
+  <meta name="theme-color" content="#0a2530">
   <meta name="description" content="A sourced, place-based tour through the history of the global HIV response and PEPFAR.">
-  <title>PEPFAR Map Tour | People, place, and time</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308396f'/%3E%3Cpath d='M32 12C17-7 5 15 19 33l20 22 8-7-20-22c-8-9 3-17 10-7z' fill='%23e42e4c'/%3E%3Cpath d='M32 12C47-7 59 15 45 33L25 55l-8-7 20-22c8-9-3-17-10-7z' fill='%23c91f40'/%3E%3C/svg%3E">
+  <title>PEPFAR StoryMaps | A global response, one place at a time</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a2530'/%3E%3Cpath d='M32 12C17-7 5 15 19 33l20 22 8-7-20-22c-8-9 3-17 10-7z' fill='%23e42e4c'/%3E%3Cpath d='M32 12C47-7 59 15 45 33L25 55l-8-7 20-22c8-9-3-17-10-7z' fill='%23c91f40'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=photo-full-1">
+  <link rel="stylesheet" href="styles.css?v=editorial-1">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script defer src="tour.js?v=photo-full-1"></script>
+  <script defer src="tour.js?v=editorial-1"></script>
 </head>
 <body>
-  <a class="skip-link" href="#story">Skip to the story</a>
-  <header class="site-header">
-    <a class="brand" href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps" aria-label="PEPFAR StoryMaps repository">
-      <span class="brand-ribbon" aria-hidden="true">◆</span>
-      <span>PEPFAR <strong>StoryMaps</strong></span>
-    </a>
-    <a class="repo-link" href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps">View the project <span aria-hidden="true">↗</span></a>
-  </header>
-
-  <main>
-    <section class="intro" aria-labelledby="page-title">
-      <div class="intro-copy">
-        <p class="eyebrow">An interactive history · 1981–2025</p>
-        <h1 id="page-title">A global response, one place at a time.</h1>
-        <p>Travel through moments that shaped HIV treatment and PEPFAR. Each stop connects a date and place with a short account, a credited photograph, a video link, and a source you can read for yourself.</p>
-        <a class="start-link" href="#tour">Begin the tour <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="intro-art" aria-hidden="true">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="globe"></div>
-        <div class="pin pin-one"></div><div class="pin pin-two"></div><div class="pin pin-three"></div>
-        <div class="intro-ribbon"></div>
-      </div>
-    </section>
-
-    <section id="tour" class="tour" aria-label="PEPFAR history map tour">
-      <div class="tour-heading">
-        <div><p class="eyebrow">Explore the timeline</p><h2>Follow the story</h2></div>
-        <div class="tour-actions">
-          <p>Choose a year, select a map pin, or use Previous and Next.</p>
-          <button id="fullscreen-toggle" class="fullscreen-toggle" type="button" aria-pressed="false">View full screen</button>
-        </div>
-      </div>
-      <nav id="timeline" class="timeline" aria-label="Tour stops"></nav>
-      <div class="tour-grid">
-        <article id="story" class="story-panel" aria-live="polite" aria-atomic="true">
-          <div class="story-topline">
-            <div class="story-status">
-              <span id="stop-count" class="stop-count"></span>
-              <span id="stop-type" class="stop-type"></span>
-            </div>
-            <button id="story-fullscreen-toggle" class="fullscreen-toggle" type="button" aria-pressed="false">View full screen</button>
-          </div>
+  <a class="skip-link" href="#stop-title">Skip to the story</a>
+  <div id="tour" class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps" aria-label="PEPFAR StoryMaps repository"><span class="brand-mark" aria-hidden="true">◆</span>PEPFAR <strong>STORYMAPS</strong></a>
+      <span class="edition">A global response, one place at a time</span>
+      <nav class="header-links" aria-label="Project links"><a href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps">Project ↗</a><a href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps/blob/main/REFERENCES.md">Sources ↗</a></nav>
+    </header>
+    <nav class="timeline-shell" aria-label="Interactive timeline, 1981 to 2025">
+      <div class="timeline-heading"><div><span class="eyebrow">TIME CONTEXT</span><strong id="timeline-current">1981</strong><span id="timeline-date">June 5, 1981</span></div><span class="timeline-endpoints">1981 <span aria-hidden="true">→</span> 2025</span></div>
+      <input id="year-slider" type="range" min="1981" max="2025" step="1" value="1981" aria-label="Choose a year between 1981 and 2025">
+      <div class="decades" aria-hidden="true"><span>1981</span><span>1990</span><span>2000</span><span>2010</span><span>2020</span><span>2025</span></div>
+      <div id="timeline" class="timeline" aria-label="Tour stops in chronological order"></div>
+    </nav>
+    <main class="workspace">
+      <article id="story" class="story-panel" aria-labelledby="stop-title">
+        <div class="story-scroll" aria-live="polite" aria-atomic="false">
+          <div class="eyebrow-row"><span class="eyebrow">THE MAP TOUR</span><span id="stop-count" class="stop-count"></span></div>
+          <p id="stop-type" class="stop-type"></p>
+          <h1 id="stop-title"></h1>
           <p id="stop-date" class="story-date"></p>
-          <h3 id="stop-title"></h3>
-          <p id="stop-place" class="story-place"></p>
-          <figure class="story-photo">
-            <img id="stop-image" alt="" loading="lazy" decoding="async">
-            <figcaption>
-              <span id="stop-photo-caption"></span>
-              <span class="media-credit">Photo: <span id="stop-photo-author"></span> · <a id="stop-photo-source" target="_blank" rel="noopener noreferrer">Wikimedia Commons source</a> · <a id="stop-photo-license" target="_blank" rel="noopener noreferrer"></a> · displayed without alteration.</span>
-            </figcaption>
-          </figure>
+          <figure class="story-photo"><img id="stop-image" alt="" loading="eager" decoding="async"><figcaption><span id="stop-photo-caption"></span><span class="media-credit">Photo: <span id="stop-photo-author"></span> · <a id="stop-photo-source" target="_blank" rel="noopener noreferrer">Wikimedia Commons source</a> · <a id="stop-photo-license" target="_blank" rel="noopener noreferrer"></a> · displayed without alteration.</span></figcaption></figure>
+          <div class="where-when"><span class="label">WHERE</span><strong id="stop-place"></strong></div>
           <p id="stop-text" class="story-text"></p>
-          <p class="video-reference"><span class="media-label">Watch</span> <a id="stop-video" target="_blank" rel="noopener noreferrer"></a><span id="stop-video-credit"></span></p>
+          <div class="video-card"><span class="label">WATCH IN CONTEXT</span><a id="stop-video" target="_blank" rel="noopener noreferrer"></a><span id="stop-video-credit" class="video-credit"></span></div>
+          <div class="evidence"><h2>Explore the evidence</h2><a id="stop-source" href="#" target="_blank" rel="noopener noreferrer"></a></div>
           <p id="stop-location-note" class="location-note"></p>
-          <a id="stop-source" class="source-link" href="#" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span></a>
-          <div class="tour-controls">
-            <button id="previous" type="button" aria-label="Previous tour stop">← Previous</button>
-            <div id="progress" class="progress" aria-hidden="true"></div>
-            <button id="next" type="button" aria-label="Next tour stop">Next →</button>
-          </div>
-        </article>
-        <div class="map-shell">
-          <div id="map" role="region" aria-label="Interactive map of tour locations"></div>
-          <p id="map-fallback" class="map-fallback" hidden>The map could not load. Use the timeline to read every stop and its source.</p>
-          <div class="map-legend"><span class="legend-dot legend-pepfar"></span> PEPFAR history <span class="legend-dot legend-context"></span> HIV response context</div>
+          <details class="further-reading"><summary>Continue exploring <span aria-hidden="true">⌄</span></summary><a href="https://kpatlas.unaids.org/dashboard">UNAIDS Key Populations Atlas ↗</a><a href="https://www.state.gov/stories-of-hope-pepfar">PEPFAR Stories of Hope ↗</a><a href="https://www.goodreads.com/book/show/245290845-lifeline"><em>Lifeline</em> by John Donnelly ↗</a><a href="SOURCES.md">Full media credits ↗</a></details>
+          <p class="method-note">Pins use city centers or national capital anchors. They do not identify individual patients, service sites, or exact event addresses. The route shows a sequence of stories, not the movement of HIV.</p>
+          <p class="project-note">Original tour built for the PEPFAR StoryMaps project. Sources and Creative Commons photo credits are linked at each stop. Map tiles © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. This project is not affiliated with or endorsed by PEPFAR or UNAIDS.</p>
         </div>
-      </div>
-      <p class="map-note">Pins use city centers or national capital anchors. They do not identify individual patients, service sites, or exact event addresses. The route shows a sequence of stories, not the movement of HIV.</p>
-    </section>
-
-    <section class="more" aria-labelledby="more-title">
-      <p class="eyebrow">Continue exploring</p>
-      <h2 id="more-title">The map is a starting point.</h2>
-      <div class="more-grid">
-        <a href="https://kpatlas.unaids.org/dashboard"><strong>UNAIDS Key Populations Atlas</strong><span>Explore original place, time, and community data. ↗</span></a>
-        <a href="https://www.state.gov/stories-of-hope-pepfar"><strong>PEPFAR Stories of Hope</strong><span>Read first-person and community-centered accounts. ↗</span></a>
-        <a href="https://www.goodreads.com/book/show/245290845-lifeline"><strong><em>Lifeline</em> by John Donnelly</strong><span>Find a book-length history of PEPFAR. ↗</span></a>
-      </div>
-    </section>
-  </main>
-  <footer>Original tour built for the PEPFAR StoryMaps project. Sources and Creative Commons photo credits are linked at each stop; see the <a href="SOURCES.md">full media credits</a> and <a href="https://github.com/jltobias/JupyterLite-PEPFAR-Storymaps/blob/main/REFERENCES.md">research references</a>. Map tiles © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. This project is not affiliated with or endorsed by PEPFAR or UNAIDS.</footer>
+        <div class="tour-controls"><button id="previous" type="button" aria-label="Previous tour stop">← Previous</button><div class="control-progress"><span id="progress-text">Stop 1 of 10</span><span id="progress" class="progress" aria-hidden="true"></span></div><button id="next" type="button" aria-label="Next tour stop">Next →</button></div>
+      </article>
+      <section class="map-shell" aria-label="Interactive geographic tour map">
+        <div id="map" role="region" aria-label="Interactive map of tour locations"></div>
+        <p id="map-fallback" class="map-fallback" hidden>The map could not load. Use the timeline to read every stop and its source.</p>
+        <div class="map-topline"><span class="map-topline-dot" aria-hidden="true"></span>GEOGRAPHIC CONTEXT</div>
+        <button id="fullscreen-toggle" class="fullscreen-toggle" type="button" aria-pressed="false">Full screen</button>
+        <div class="map-caption"><span class="label">CURRENT STOP</span><strong id="map-caption-title"></strong><span id="map-caption-subtitle">Approximate locator</span></div>
+        <div class="map-legend"><span class="legend-dot legend-pepfar"></span> PEPFAR history <span class="legend-dot legend-context"></span> HIV response context</div>
+      </section>
+    </main>
+  </div>
   <noscript><p class="noscript">JavaScript is needed to navigate the map tour. The <a href="https://www.hiv.gov/hiv-basics/overview/history/hiv-and-aids-timeline/">HIV.gov timeline</a> and <a href="https://www.cdc.gov/global-hiv-tb/">CDC Global HIV and TB</a> remain available.</p></noscript>
 </body>
 </html>
