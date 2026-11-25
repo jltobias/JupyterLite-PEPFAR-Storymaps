@@ -42,7 +42,10 @@
     <section id="tour" class="tour" aria-label="PEPFAR history map tour">
       <div class="tour-heading">
         <div><p class="eyebrow">Explore the timeline</p><h2>Follow the story</h2></div>
-        <p>Choose a year, select a map pin, or use Previous and Next.</p>
+        <div class="tour-actions">
+          <p>Choose a year, select a map pin, or use Previous and Next.</p>
+          <button id="fullscreen-toggle" class="fullscreen-toggle" type="button" aria-pressed="false">View full screen</button>
+        </div>
       </div>
       <nav id="timeline" class="timeline" aria-label="Tour stops"></nav>
       <div class="tour-grid">

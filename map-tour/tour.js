@@ -267,6 +267,45 @@ try {
   console.warn("Map could not initialize:", error);
 }
 
+const tour = $("tour");
+const fullscreenToggle = $("fullscreen-toggle");
+let previousBodyOverflow = "";
+function useFullscreenFallback() {
+  previousBodyOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+  tour.classList.add("fullscreen-fallback");
+  syncFullscreen();
+}
+function leaveFullscreenFallback() {
+  tour.classList.remove("fullscreen-fallback");
+  document.body.style.overflow = previousBodyOverflow;
+  syncFullscreen();
+}
+function syncFullscreen() {
+  const active = document.fullscreenElement === tour || tour.classList.contains("fullscreen-fallback");
+  fullscreenToggle.textContent = active ? "Exit full screen" : "View full screen";
+  fullscreenToggle.setAttribute("aria-pressed", String(active));
+  if (map) window.requestAnimationFrame(() => map.invalidateSize({pan: false}));
+}
+fullscreenToggle.addEventListener("click", async () => {
+  if (tour.classList.contains("fullscreen-fallback")) {
+    leaveFullscreenFallback();
+  } else if (document.fullscreenElement === tour) {
+    await document.exitFullscreen();
+  } else if (document.fullscreenEnabled && tour.requestFullscreen) {
+    try {
+      await tour.requestFullscreen();
+    } catch (error) {
+      console.warn("Using an expanded tour view:", error);
+      useFullscreenFallback();
+    }
+  } else useFullscreenFallback();
+});
+document.addEventListener("fullscreenchange", syncFullscreen);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && tour.classList.contains("fullscreen-fallback")) leaveFullscreenFallback();
+});
+
 const requestedId = decodeURIComponent(location.hash.replace(/^#stop=/, ""));
 const requestedIndex = stops.findIndex((stop) => stop.id === requestedId);
 selectStop(requestedIndex >= 0 ? requestedIndex : 0, false);
